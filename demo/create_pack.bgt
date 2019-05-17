@@ -1,0 +1,26 @@
+/*
+Here, we create our pack and a couple dummy functions for the profiler.
+This is in order to figure out, basically, what function is doing what under the hood in an attempt to completely replicate functionality.
+*/
+
+void main()
+{
+start_profiling();
+pack_file test;
+test.create("pack.dat");
+add_file(test, "test1.txt", "t1");
+add_file(test, "test2.txt", "t2");
+close(test);
+generate_profile("profile.log");
+alert("packed", "packing completed");
+}
+
+void add_file(pack_file @pack, string file_on_disk, string internal_name)
+{
+pack.add_file(file_on_disk, internal_name);
+}
+
+void close(pack_file@ pack)
+{
+pack.close();
+}
