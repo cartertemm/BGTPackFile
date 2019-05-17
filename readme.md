@@ -27,9 +27,9 @@ import pack_file
 
 p=pack_file.pack_file()
 p.create("music.dat")
-p.add_file("music1.ogg", b"m1")
-p.add_file("music2.ogg", b"m2")
-p.add_file("music3.ogg", b"m3")
+p.add_file("music1.ogg", "m1")
+p.add_file("music2.ogg", "m2")
+p.add_file("music3.ogg", "m3")
 ```
 
 And to work with each file:
@@ -40,10 +40,10 @@ import pack_file
 p=pack_file.pack_file()
 p.open("music.dat")
 #extract to disk
-p.extract(b"m1", "music1_from_pack.ogg")
-#music1.ogg and music1_from_pack.ogg should be completely identical
+p.extract_file("m1", "music1_from_pack.ogg")
+#music1.ogg and music1_from_pack.ogg should now be completely identical
 #Or to get a file object with data stored in memory
-obj=p.get_file(b"m1")
+obj=p.get_file("m1")
 #from here you can perform standard I/O calls on obj
 content=obj.read()
 obj.seek(0)

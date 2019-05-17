@@ -50,6 +50,8 @@ class pack_file:
 		The pack file must be opened in write mode with the create method for this operation to be successful.
 		Internal_name is simply used to refer to the file inside the pack. This can contain any characters and can be laid out in any format.
 		"""
+		if type(internal_name)==str:
+			internal_name=internal_name.encode()
 		if self.mode!=PF_CREATE:
 			return False
 		f=open(file_on_disk, "rb")
@@ -118,6 +120,8 @@ class pack_file:
 		Passes data from a file inside a pack to a standard file like object. This allows a file to be read in chunks from inside the pack without the need to extract it to disk. The file object does not contain a copy of the data, it reads from the original pack but only the relevant section of the file, so that you need not worry about accessing other data in the pack by accident.
 		This method can only be used on a pack opened for reading.
 		"""
+		if type(internal_name)==str:
+			internal_name=internal_name.encode()
 		if self.mode!=PF_READ:
 			return False
 		#Can we find the given internal_name in our pack?
@@ -135,6 +139,8 @@ class pack_file:
 		Returns the internal file instance for the given filename.
 		Mostly used internally
 		"""
+		if type(filename)==str:
+			filename=filename.encode()
 		found=None
 		for file in self.files:
 			if file.name==filename:
@@ -147,6 +153,8 @@ class pack_file:
 		checks whether a given file exists in the pack.
 		Only works in instances opened for reading.
 		"""
+		if self.mode!=PF_READ:
+			return False
 		return self._get_fileobj(filename) is not None
 
 
@@ -157,6 +165,8 @@ class pack_file:
 		"""
 		if self.mode!=PF_READ:
 			return False
+		if type(internal_name)==str:
+			internal_name=internal_name.encode()
 		found=self._get_fileobj(internal_name)
 		if not found:
 			return False
