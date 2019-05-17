@@ -52,6 +52,6 @@ obj.seek(0)
 
 ## notes
 
-This was a product stemming from nothing more than complete bordom. As a result, little more than minimal testing has been performed to ensure cross compatibility and full functionality.
-My point has never been anything more than a simple demonstration. If you make improvements, feel free to submit a pull request. If you find an issue, please do let me know either through email or the issue tracker. I certainly care about bug fixes and enhancements. That being said, I won't be making frequent updates by any stretch of the imagination.
+This was a product stemming from complete bordom. As a result, little more than minimal testing has been performed to ensure cross compatibility and full functionality.
+My point here is merely a simple demonstration. If you make improvements, feel free to submit a pull request. If you find an issue, please do let me know either through email or the issue tracker. I certainly care about bug fixes and enhancements. That being said, I won't be making frequent updates by any stretch of the imagination.
 In short, milage may very if you do happen to try imbedding such a POC in your application. I'm not to be held responsible if something blows up.
